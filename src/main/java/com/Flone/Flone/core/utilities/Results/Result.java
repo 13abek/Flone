@@ -1,13 +1,13 @@
-package com.Flone.Flone.core.utilities;
+package com.Flone.Flone.core.utilities.Results;
 
 public class Result {
     private boolean success;
     private String message;
 
     public Result(boolean success){
-    this.success=success;
+        this.success=success;
     }
-    public Result(String message,boolean success){
+    public Result(String message, boolean success){
         this(success);
         this.message=message;
     }
