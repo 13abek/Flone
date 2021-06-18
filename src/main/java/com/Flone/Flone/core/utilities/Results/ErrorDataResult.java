@@ -1,6 +1,8 @@
-package com.Flone.Flone.core.utilities;
+package com.Flone.Flone.core.utilities.Results;
 
-public class ErrorDataResult<T> extends DataResult<T>{
+import com.Flone.Flone.core.utilities.Results.DataResult;
+
+public class ErrorDataResult<T> extends DataResult<T> {
     public ErrorDataResult(T data,String message){
         super(data,false,message);
     }

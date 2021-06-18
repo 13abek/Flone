@@ -1,6 +1,8 @@
-package com.Flone.Flone.core.utilities;
+package com.Flone.Flone.core.utilities.Results;
 
-public class SuccessDataResult<T> extends DataResult<T>{
+import com.Flone.Flone.core.utilities.Results.DataResult;
+
+public class SuccessDataResult<T> extends DataResult<T> {
    public SuccessDataResult(T data ,String message){
     super(data,true,message);
     }

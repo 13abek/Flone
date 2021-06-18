@@ -1,4 +1,4 @@
-package com.Flone.Flone.core.utilities;
+package com.Flone.Flone.core.utilities.Results;
 
 public class SuccessResult extends Result{
 
