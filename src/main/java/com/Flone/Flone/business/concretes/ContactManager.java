@@ -1,10 +1,7 @@
 package com.Flone.Flone.business.concretes;
 
 import com.Flone.Flone.business.abstracts.ContactService;
-import com.Flone.Flone.core.utilities.Results.DataResult;
-import com.Flone.Flone.core.utilities.Results.Result;
-import com.Flone.Flone.core.utilities.Results.SuccessDataResult;
-import com.Flone.Flone.core.utilities.Results.SuccessResult;
+import com.Flone.Flone.core.utilities.Results.*;
 import com.Flone.Flone.dataAccess.abstracts.ContactDao;
 import com.Flone.Flone.entities.concretes.Contact;
 import org.springframework.stereotype.Service;
@@ -27,4 +24,11 @@ public class ContactManager implements ContactService {
         this.contactDao.save(contact);
         return new SuccessResult("Contact Added !");
     }
+
+    @Override
+    public Result delete(Contact contact) {
+        this.contactDao.delete(contact);
+        return new SuccessResult("Contact deleted!");
+    }
+
 }

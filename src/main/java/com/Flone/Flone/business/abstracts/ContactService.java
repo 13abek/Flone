@@ -7,4 +7,5 @@ import com.Flone.Flone.entities.concretes.Contact;
 public interface ContactService {
     DataResult<Contact> findById(int id);
     Result add(Contact contact);
+    Result delete(Contact contact);
 }
