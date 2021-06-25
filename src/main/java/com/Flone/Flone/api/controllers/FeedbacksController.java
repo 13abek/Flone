@@ -30,7 +30,7 @@ public class FeedbacksController {
     public DataResult<List<Feedback>> getAll(){
         return this.feedbackService.getAll();
     }
-    @GetMapping("/findbyid/{id}")
+    @GetMapping("/getbyid/{id}")
     public DataResult<Feedback> findById(@PathVariable int id){
         return this.feedbackService.findById(id);
     }
