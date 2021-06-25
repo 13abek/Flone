@@ -7,6 +7,8 @@ import com.Flone.Flone.entities.concretes.Feedback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/feedback")
 public class FeedbacksController {
@@ -23,6 +25,10 @@ public class FeedbacksController {
     @DeleteMapping("/delete")
     public Result delete(Feedback feedback){
      return    this.feedbackService.delete(feedback);
+    }
+    @GetMapping("/getall")
+    public DataResult<List<Feedback>> getAll(){
+        return this.feedbackService.getAll();
     }
     @GetMapping("/findbyid/{id}")
     public DataResult<Feedback> findById(@PathVariable int id){
