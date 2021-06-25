@@ -45,7 +45,12 @@ public class FeedbackManager implements FeedbackService {
 
     @Override
     public Result update(Feedback feedback) {
-
-        return null;
+    Feedback upadteToFeedback=this.feedbackDao.findById(feedback.getId());
+    upadteToFeedback.setEmail(feedback.getEmail());
+    upadteToFeedback.setName(feedback.getName());
+    upadteToFeedback.setSubject(feedback.getSubject());
+    upadteToFeedback.setMessage(feedback.getMessage());
+    this.feedbackDao.save(upadteToFeedback);
+        return new SuccessResult("Feedback Updated !");
     }
 }

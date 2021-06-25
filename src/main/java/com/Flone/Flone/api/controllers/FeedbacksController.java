@@ -28,4 +28,8 @@ public class FeedbacksController {
     public DataResult<Feedback> findById(@PathVariable int id){
         return this.feedbackService.findById(id);
     }
+    @PatchMapping("/update")
+    public  Result update(Feedback feedback){
+        return this.feedbackService.update(feedback);
+    }
 }
