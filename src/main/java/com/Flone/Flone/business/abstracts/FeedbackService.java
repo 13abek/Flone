@@ -4,7 +4,6 @@ import com.Flone.Flone.core.utilities.Results.DataResult;
 import com.Flone.Flone.core.utilities.Results.Result;
 import com.Flone.Flone.entities.concretes.Feedback;
 
-import javax.xml.crypto.Data;
 import java.util.List;
 
 public interface FeedbackService {
@@ -13,5 +12,4 @@ public interface FeedbackService {
     Result add(Feedback feedback);
     Result delete(Feedback feedback);
     Result update(Feedback feedback);
-
 }
