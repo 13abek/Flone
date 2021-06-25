@@ -30,7 +30,6 @@ public class FeedbackManager implements FeedbackService {
     public DataResult<Feedback> findById(int id) {
         return new SuccessDataResult<Feedback>(this.feedbackDao.findById(id),"Feedback found!");
     }
-
     @Override
     public Result add(Feedback feedback) {
         if (!this.emailValidationService.validate(feedback.getEmail())){
@@ -39,13 +38,11 @@ public class FeedbackManager implements FeedbackService {
         this.feedbackDao.save(feedback);
         return new SuccessResult("Feedback added!");
     }
-
     @Override
     public Result delete(Feedback feedback) {
         this.feedbackDao.delete(feedback);
         return new SuccessResult("feedback has been deleted!");
     }
-
     @Override
     public Result update(Feedback feedback) {
     Feedback updateToFeedback=this.feedbackDao.findById(feedback.getId());
