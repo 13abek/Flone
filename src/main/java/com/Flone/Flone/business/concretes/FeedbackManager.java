@@ -34,12 +34,13 @@ public class FeedbackManager implements FeedbackService {
     @Override
     public Result add(Feedback feedback) {
         this.feedbackDao.save(feedback);
-        return new SuccessResult("Feedbakc added!");
+        return new SuccessResult("Feedback added!");
     }
 
     @Override
     public Result delete(Feedback feedback) {
-        return null;
+        this.feedbackDao.delete(feedback);
+        return new SuccessResult("feedback has been deleted!");
     }
 
     @Override

@@ -4,6 +4,7 @@ import com.Flone.Flone.business.abstracts.FeedbackService;
 import com.Flone.Flone.core.utilities.Results.Result;
 import com.Flone.Flone.entities.concretes.Feedback;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,5 +21,9 @@ public class FeedbacksController {
     @PostMapping("/add")
     public Result add(Feedback feedback){
         return this.feedbackService.add(feedback);
+    }
+    @DeleteMapping("/delete")
+    public Result delete(Feedback feedback){
+     return    this.feedbackService.delete(feedback);
     }
 }
