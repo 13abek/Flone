@@ -31,4 +31,14 @@ public class ContactManager implements ContactService {
         return new SuccessResult("Contact deleted!");
     }
 
+    @Override
+    public Result update(Contact contact) {
+       Contact updateToContact= this.contactDao.findById(contact.getId());
+       updateToContact.setAddress(contact.getAddress());
+       updateToContact.setEmail(contact.getEmail());
+       updateToContact.setPhone(contact.getPhone());
+       this.contactDao.save(updateToContact);
+        return new SuccessResult("Contact has been updated!");
+    }
+
 }

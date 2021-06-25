@@ -26,6 +26,10 @@ public class ContactsController {
     public Result delete(Contact contact){
         return this.contactService.delete(contact);
     }
+    @PatchMapping("/update")
+    public Result update(Contact contact){
+        return  this.contactService.update(contact);
+    }
 
 
 }

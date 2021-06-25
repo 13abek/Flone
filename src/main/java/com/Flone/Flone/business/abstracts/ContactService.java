@@ -8,4 +8,6 @@ public interface ContactService {
     DataResult<Contact> findById(int id);
     Result add(Contact contact);
     Result delete(Contact contact);
+    Result update(Contact contact);
+
 }
