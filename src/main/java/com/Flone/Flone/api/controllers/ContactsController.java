@@ -6,12 +6,19 @@ import com.Flone.Flone.entities.concretes.Contact;
 import org.springframework.boot.autoconfigure.freemarker.FreeMarkerTemplateAvailabilityProvider;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/contact")
 public class ContactsController {
     private ContactService contactService;
     public ContactsController(ContactService contactService){
         this.contactService=contactService;
+    }
+
+    @GetMapping("/getall")
+    public DataResult<List<Contact>> getAll(){
+        return this.contactService.getAll();
     }
 
     @GetMapping("/getbyid/{id}")
