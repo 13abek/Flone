@@ -1,8 +1,11 @@
 package com.Flone.Flone.entities.concretes;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
 
 @Entity
 @Table(name = "home_sliders")
@@ -21,21 +24,24 @@ public class HomeSlider {
     @NotNull
     @NotBlank
     private String type;
+    @Lob
+    private byte[] data;
 
-    @ManyToOne()
-    @JoinColumn(name = "homeId")
+   @ManyToOne(cascade = CascadeType.ALL)
+   @JoinColumn(name ="home_id")
     private Home home;
     public HomeSlider(){
 
     }
-
-    public HomeSlider(int id, String name, String type) {
+    public HomeSlider(int id, String name, String type,Home home) {
         this.id = id;
         this.name = name;
         this.type = type;
-
+        this.home=home;
     }
-
+    public void addHome(@NotNull Home home){
+        this.home=home;
+    }
     public int getId() {
         return id;
     }
@@ -58,5 +64,13 @@ public class HomeSlider {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public byte[] getData() {
+        return data;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
     }
 }

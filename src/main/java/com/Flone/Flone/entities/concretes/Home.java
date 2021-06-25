@@ -61,4 +61,8 @@ public class Home {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public void setHomeSliders(List<HomeSlider> homeSliders) {
+        this.homeSliders = homeSliders;
+    }
 }
