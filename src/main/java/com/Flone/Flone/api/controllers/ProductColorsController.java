@@ -15,7 +15,7 @@ import javax.xml.crypto.Data;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/productcolors/")
+@RequestMapping("/api/productcolors")
 public class ProductColorsController {
     private ProductColorService productColorService;
 

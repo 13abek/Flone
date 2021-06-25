@@ -28,7 +28,7 @@ public class FeedbackManager implements FeedbackService {
 
     @Override
     public DataResult<Feedback> findById(int id) {
-        return null;
+        return new SuccessDataResult<Feedback>(this.feedbackDao.findById(id),"Feedback found!");
     }
 
     @Override
@@ -45,6 +45,7 @@ public class FeedbackManager implements FeedbackService {
 
     @Override
     public Result update(Feedback feedback) {
+
         return null;
     }
 }

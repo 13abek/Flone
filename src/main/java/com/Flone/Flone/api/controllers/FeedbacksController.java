@@ -1,16 +1,14 @@
 package com.Flone.Flone.api.controllers;
 
 import com.Flone.Flone.business.abstracts.FeedbackService;
+import com.Flone.Flone.core.utilities.Results.DataResult;
 import com.Flone.Flone.core.utilities.Results.Result;
 import com.Flone.Flone.entities.concretes.Feedback;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/feedback")
+@RequestMapping("/api/feedback")
 public class FeedbacksController {
     private FeedbackService feedbackService;
 
@@ -25,5 +23,9 @@ public class FeedbacksController {
     @DeleteMapping("/delete")
     public Result delete(Feedback feedback){
      return    this.feedbackService.delete(feedback);
+    }
+    @GetMapping("/findbyid/{id}")
+    public DataResult<Feedback> findById(@PathVariable int id){
+        return this.feedbackService.findById(id);
     }
 }
