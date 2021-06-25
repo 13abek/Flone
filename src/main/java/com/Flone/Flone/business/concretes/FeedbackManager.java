@@ -4,6 +4,7 @@ import com.Flone.Flone.business.abstracts.FeedbackService;
 import com.Flone.Flone.core.utilities.Results.DataResult;
 import com.Flone.Flone.core.utilities.Results.Result;
 import com.Flone.Flone.core.utilities.Results.SuccessDataResult;
+import com.Flone.Flone.core.utilities.Results.SuccessResult;
 import com.Flone.Flone.dataAccess.abstracts.FeedbackDao;
 import com.Flone.Flone.entities.concretes.Feedback;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,8 @@ public class FeedbackManager implements FeedbackService {
 
     @Override
     public Result add(Feedback feedback) {
-        return null;
+        this.feedbackDao.save(feedback);
+        return new SuccessResult("Feedbakc added!");
     }
 
     @Override
