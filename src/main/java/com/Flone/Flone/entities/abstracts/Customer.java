@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @MappedSuperclass
-public class BaseCustomer {
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -41,11 +41,11 @@ public class BaseCustomer {
     @NotNull
     private String postcodeZip;
 
-    public BaseCustomer(){
+    public Customer(){
 
     }
 
-    public BaseCustomer(int id, String phone, String email, String country, String townCity, String streetAddress, String postcodeZip) {
+    public Customer(int id, String phone, String email, String country, String townCity, String streetAddress, String postcodeZip) {
         this.id = id;
         this.phone = phone;
         this.email = email;

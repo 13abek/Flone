@@ -1,7 +1,5 @@
 package com.Flone.Flone.entities.concretes;
 
-import com.Flone.Flone.entities.abstracts.BaseCustomer;
-
 import javax.persistence.*;
 import java.util.List;
 

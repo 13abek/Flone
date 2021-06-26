@@ -21,9 +21,13 @@ public class ProductImage {
     @NotNull
     @NotBlank
     private String type;
+    @NotNull
+    @NotBlank
+    @Lob
+    private byte[] data;
 
     @ManyToOne()
-    @JoinColumn(name = "productId")
+    @JoinColumn(name = "product_id")
     private Product product;
 
     public ProductImage(){
@@ -35,7 +39,9 @@ public class ProductImage {
         this.name = name;
         this.type = type;
     }
-
+    public void addProduct(@NotNull Product product){
+        this.product=product;
+    }
     public int getId() {
         return id;
     }
@@ -58,5 +64,13 @@ public class ProductImage {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public byte[] getData() {
+        return data;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
     }
 }

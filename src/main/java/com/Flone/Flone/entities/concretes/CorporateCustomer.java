@@ -1,6 +1,6 @@
 package com.Flone.Flone.entities.concretes;
 
-import com.Flone.Flone.entities.abstracts.BaseCustomer;
+import com.Flone.Flone.entities.abstracts.Customer;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "corporate_customer")
-public class CorporateCustomer extends BaseCustomer {
+public class CorporateCustomer extends Customer {
 
     @Column(name = "company_name")
     private String companyName;
