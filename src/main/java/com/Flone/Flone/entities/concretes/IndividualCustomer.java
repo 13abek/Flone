@@ -19,4 +19,29 @@ public class IndividualCustomer extends Customer {
 
     @OneToMany(mappedBy = "individualCustomer")
     private List<Order>orders;
+    public IndividualCustomer(){
+
+    }
+
+    public IndividualCustomer(int id, String phone, String email, String country, String townCity, String streetAddress, String postcodeZip, String firstName, String lastName) {
+        super(id, phone, email, country, townCity, streetAddress, postcodeZip);
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 }
