@@ -8,5 +8,6 @@ import com.Flone.Flone.entities.concretes.IndividualCustomer;
 public interface IndividualCustomerService {
     DataResult<IndividualCustomer> findById(int id);
     Result add(IndividualCustomer customer);
+    Result delete(IndividualCustomer customer);
 
 }

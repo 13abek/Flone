@@ -4,10 +4,7 @@ import com.Flone.Flone.business.abstracts.IndividualCustomerService;
 import com.Flone.Flone.core.utilities.Results.DataResult;
 import com.Flone.Flone.core.utilities.Results.Result;
 import com.Flone.Flone.entities.concretes.IndividualCustomer;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/individualcustomer/")
@@ -23,5 +20,9 @@ public class IndividualCustomersController {
     @PostMapping("/add")
     public Result add(IndividualCustomer customer){
         return this.customerService.add(customer);
+    }
+    @DeleteMapping("/delete")
+    public Result delete(IndividualCustomer customer){
+      return this.customerService.delete(customer);
     }
 }

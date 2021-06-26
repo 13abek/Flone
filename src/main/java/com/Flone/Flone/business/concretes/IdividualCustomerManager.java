@@ -30,4 +30,10 @@ public class IdividualCustomerManager implements IndividualCustomerService {
         this.customerDao.save(customer);
         return new SuccessResult("Customer add");
     }
+
+    @Override
+    public Result delete(IndividualCustomer customer) {
+        this.customerDao.delete(customer);
+        return new SuccessResult("individualCustomer deleted");
+    }
 }
