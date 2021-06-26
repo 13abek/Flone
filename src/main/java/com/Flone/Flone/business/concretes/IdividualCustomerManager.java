@@ -33,6 +33,11 @@ public class IdividualCustomerManager implements IndividualCustomerService {
     }
 
     @Override
+    public DataResult<IndividualCustomer> findByEmail(String email) {
+        return new SuccessDataResult<IndividualCustomer>(this.customerDao.findByEmail(email));
+    }
+
+    @Override
     public Result add(IndividualCustomer customer) {
         if (!this.emailValidationService.validate(customer.getEmail())){
             return new ErrorResult("Invalid email,Please try again !");
@@ -50,12 +55,15 @@ public class IdividualCustomerManager implements IndividualCustomerService {
     @Override
     public Result update(IndividualCustomer customer) {
       IndividualCustomer  updateToCustomer=this.customerDao.findById(customer.getId());
+      System.out.println(updateToCustomer.getFirstName() + updateToCustomer.getCountry());
       updateToCustomer.setCountry(customer.getCountry());
       updateToCustomer.setEmail(customer.getEmail());
       updateToCustomer.setPhone(customer.getPhone());
       updateToCustomer.setStreetAddress(customer.getStreetAddress());
       updateToCustomer.setTownCity(customer.getTownCity());
       updateToCustomer.setPostcodeZip(customer.getPostcodeZip());
+      updateToCustomer.setFirstName(customer.getFirstName());
+      updateToCustomer.setLastName(customer.getLastName());
       this.customerDao.save(updateToCustomer);
         return new SuccessResult("IndividualCustomer updated");
     }

@@ -4,6 +4,7 @@ import com.Flone.Flone.entities.concretes.Order;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -18,27 +19,27 @@ public class Customer {
     @Column(name = "email")
     @Email
     @NotNull
-    @NotNull
+    @NotBlank
     private String email;
 
     @Column(name = "country")
     @NotNull
-    @NotNull
+    @NotBlank
     private String country;
 
     @Column(name = "town_city")
     @NotNull
-    @NotNull
+    @NotBlank
     private String townCity;
 
     @Column(name = "street_address")
     @NotNull
-    @NotNull
+    @NotBlank
     private String streetAddress;
 
     @Column(name = "postcode_zip")
     @NotNull
-    @NotNull
+    @NotBlank
     private String postcodeZip;
 
     public Customer(){

@@ -10,6 +10,7 @@ import java.util.List;
 public interface IndividualCustomerService {
     DataResult<List<IndividualCustomer>> getAll();
     DataResult<IndividualCustomer> findById(int id);
+    DataResult<IndividualCustomer> findByEmail(String email);
     Result add(IndividualCustomer customer);
     Result delete(IndividualCustomer customer);
     Result update(IndividualCustomer customer);

@@ -23,6 +23,10 @@ public class IndividualCustomersController {
     public DataResult<IndividualCustomer> findbyid(int id){
         return this.customerService.findById(id);
     }
+    @GetMapping("/getbyemail")
+    public DataResult<IndividualCustomer> findByEmail(String email){
+        return this.customerService.findByEmail(email);
+    }
     @PostMapping("/add")
     public Result add(IndividualCustomer customer){
         return this.customerService.add(customer);
