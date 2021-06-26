@@ -34,7 +34,7 @@ public class IdividualCustomerManager implements IndividualCustomerService {
 
     @Override
     public DataResult<IndividualCustomer> findByEmail(String email) {
-        return new SuccessDataResult<IndividualCustomer>(this.customerDao.findByEmail(email));
+        return new SuccessDataResult<IndividualCustomer>(this.customerDao.findByEmail(email),"Customer found!");
     }
 
     @Override
