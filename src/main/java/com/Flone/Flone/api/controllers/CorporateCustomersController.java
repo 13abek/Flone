@@ -2,11 +2,9 @@ package com.Flone.Flone.api.controllers;
 
 import com.Flone.Flone.business.abstracts.CorporateCustomerService;
 import com.Flone.Flone.core.utilities.Results.DataResult;
+import com.Flone.Flone.core.utilities.Results.Result;
 import com.Flone.Flone.entities.concretes.CorporateCustomer;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +26,9 @@ public class CorporateCustomersController {
     @GetMapping("/getall")
     public DataResult<List<CorporateCustomer>> getAll(){
         return this.customerService.getAll();
+    }
+    @PostMapping("/add")
+    public Result add(CorporateCustomer customer){
+        return this.customerService.add(customer);
     }
 }
