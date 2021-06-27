@@ -31,4 +31,8 @@ public class CorporateCustomersController {
     public Result add(CorporateCustomer customer){
         return this.customerService.add(customer);
     }
+    @DeleteMapping("/delete")
+    public Result delete(CorporateCustomer customer){
+        return this.customerService.delete(customer);
+    }
 }
