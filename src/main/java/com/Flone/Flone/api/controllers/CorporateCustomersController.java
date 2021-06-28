@@ -35,4 +35,8 @@ public class CorporateCustomersController {
     public Result delete(CorporateCustomer customer){
         return this.customerService.delete(customer);
     }
+    @PatchMapping("/update")
+    public Result update(CorporateCustomer customer){
+        return this.customerService.update(customer);
+    }
 }

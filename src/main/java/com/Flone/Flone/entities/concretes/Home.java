@@ -29,7 +29,6 @@ public class Home {
     private List<HomeSlider> homeSliders;
 
     public  Home(){
-
     }
 
     public Home(int id, String upperTitle, String title) {
@@ -64,5 +63,9 @@ public class Home {
 
     public void setHomeSliders(List<HomeSlider> homeSliders) {
         this.homeSliders = homeSliders;
+    }
+
+    public List<HomeSlider> getHomeSliders() {
+        return homeSliders;
     }
 }

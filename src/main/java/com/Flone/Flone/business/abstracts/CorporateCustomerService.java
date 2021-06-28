@@ -12,4 +12,5 @@ public interface CorporateCustomerService {
     DataResult<List<CorporateCustomer>> getAll();
     Result add(CorporateCustomer customer);
     Result delete(CorporateCustomer customer);
+    Result update(CorporateCustomer customer);
 }

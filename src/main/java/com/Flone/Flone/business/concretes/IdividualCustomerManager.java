@@ -55,7 +55,6 @@ public class IdividualCustomerManager implements IndividualCustomerService {
     @Override
     public Result update(IndividualCustomer customer) {
       IndividualCustomer  updateToCustomer=this.customerDao.findById(customer.getId());
-      System.out.println(updateToCustomer.getFirstName() + updateToCustomer.getCountry());
       updateToCustomer.setCountry(customer.getCountry());
       updateToCustomer.setEmail(customer.getEmail());
       updateToCustomer.setPhone(customer.getPhone());
