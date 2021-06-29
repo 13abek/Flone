@@ -4,6 +4,7 @@ import com.Flone.Flone.business.abstracts.CorporateCustomerService;
 import com.Flone.Flone.core.utilities.Results.DataResult;
 import com.Flone.Flone.core.utilities.Results.Result;
 import com.Flone.Flone.entities.concretes.CorporateCustomer;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,27 +17,27 @@ public class CorporateCustomersController {
         this.customerService=customerService;
     }
     @GetMapping("/getbyid/{id}")
-    public DataResult<CorporateCustomer> findById(@PathVariable int id){
-        return this.customerService.findById(id);
+    public ResponseEntity<?> findById(@PathVariable int id){
+        return ResponseEntity.ok(this.customerService.findById(id));
     }
     @GetMapping("/getbyemail/{email}")
-    public DataResult<CorporateCustomer> findByEmail(@PathVariable String email){
-        return this.customerService.findByEmail(email);
+    public ResponseEntity<?> findByEmail(@PathVariable String email){
+        return ResponseEntity.ok(this.customerService.findByEmail(email));
     }
     @GetMapping("/getall")
-    public DataResult<List<CorporateCustomer>> getAll(){
-        return this.customerService.getAll();
+    public ResponseEntity<?> getAll(){
+        return ResponseEntity.ok(this.customerService.getAll());
     }
     @PostMapping("/add")
-    public Result add(CorporateCustomer customer){
-        return this.customerService.add(customer);
+    public ResponseEntity<?> add(CorporateCustomer customer){
+        return ResponseEntity.ok(this.customerService.add(customer));
     }
     @DeleteMapping("/delete")
-    public Result delete(CorporateCustomer customer){
-        return this.customerService.delete(customer);
+    public ResponseEntity<?> delete(CorporateCustomer customer){
+        return ResponseEntity.ok(this.customerService.delete(customer));
     }
     @PatchMapping("/update")
-    public Result update(CorporateCustomer customer){
-        return this.customerService.update(customer);
+    public ResponseEntity<?> update(CorporateCustomer customer){
+        return ResponseEntity.ok(this.customerService.update(customer));
     }
 }

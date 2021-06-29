@@ -4,6 +4,7 @@ import com.Flone.Flone.business.abstracts.IndividualCustomerService;
 import com.Flone.Flone.core.utilities.Results.DataResult;
 import com.Flone.Flone.core.utilities.Results.Result;
 import com.Flone.Flone.entities.concretes.IndividualCustomer;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,27 +17,27 @@ public class IndividualCustomersController {
         this.customerService=customerService;
     }
     @GetMapping("/getall")
-    public DataResult<List<IndividualCustomer>> getAll(){
-        return this.customerService.getAll();
+    public ResponseEntity<?> getAll(){
+        return ResponseEntity.ok(this.customerService.getAll());
     }
     @GetMapping("/getbyid")
-    public DataResult<IndividualCustomer> findbyid(int id){
-        return this.customerService.findById(id);
+    public ResponseEntity<?>  findbyid(int id){
+        return ResponseEntity.ok(this.customerService.getAll());
     }
     @GetMapping("/getbyemail")
-    public DataResult<IndividualCustomer> findByEmail(String email){
-        return this.customerService.findByEmail(email);
+    public ResponseEntity<?>  findByEmail(String email){
+        return ResponseEntity.ok(this.customerService.findByEmail(email));
     }
     @PostMapping("/add")
-    public Result add(IndividualCustomer customer){
-        return this.customerService.add(customer);
+    public ResponseEntity<?>  add(IndividualCustomer customer){
+        return ResponseEntity.ok(this.customerService.add(customer));
     }
     @DeleteMapping("/delete")
-    public Result delete(IndividualCustomer customer){
-      return this.customerService.delete(customer);
+    public ResponseEntity<?>  delete(IndividualCustomer customer){
+      return ResponseEntity.ok(this.customerService.delete(customer));
     }
     @PatchMapping("/update")
-    public Result update(IndividualCustomer customer){
-        return this.customerService.update(customer);
+    public ResponseEntity<?>  update(IndividualCustomer customer){
+        return ResponseEntity.ok(this.customerService.update(customer));
     }
 }
