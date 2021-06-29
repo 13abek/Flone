@@ -1,6 +1,7 @@
 package com.Flone.Flone.entities.abstracts;
 
 import com.Flone.Flone.entities.concretes.Order;
+import org.aspectj.weaver.ast.Or;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -8,8 +9,11 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-
-@MappedSuperclass
+@Entity
+@Table(name = "customers")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type",discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorValue(value = "base_customers")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,6 +47,8 @@ public class Customer {
     @NotBlank
     private String postcodeZip;
 
+    @OneToMany(mappedBy = "customer")
+    List<Order> orders;
 
     public Customer(){
 

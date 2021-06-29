@@ -28,11 +28,9 @@ public class Order {
     @Column(name = "price")
     private double price;
 
-  //  @ManyToOne
-    // @JoinColumn(name = "customerId")
-  //  private Customer customer;
-
-
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
@@ -42,12 +40,13 @@ public class Order {
 
     }
 
-    public Order(int id, Date date, int amount, double price) {
+    public Order(int id, Date date, int amount, double price,Customer customer) {
         this.id = id;
         this.date = date;
         this.amount = amount;
         this.price = price;
         this.product = product;
+        this.customer=customer;
     }
 
     public int getId() {
@@ -80,5 +79,8 @@ public class Order {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+    public void addCustomer(Customer customer){
+        this.customer=customer;
     }
 }

@@ -2,17 +2,14 @@ package com.Flone.Flone.entities.concretes;
 
 import com.Flone.Flone.entities.abstracts.Customer;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 
 @Entity
-@Table(name = "corporate_customers")
+@DiscriminatorValue(value = "corporate_customers")
 public class CorporateCustomer extends Customer {
 
     @Column(name = "company_name")
@@ -20,8 +17,6 @@ public class CorporateCustomer extends Customer {
     @NotNull
     private String companyName;
 
-    @OneToMany(mappedBy = "corporateCustomer")
-    private List<Order> orders;
     public CorporateCustomer(){
 
     }
