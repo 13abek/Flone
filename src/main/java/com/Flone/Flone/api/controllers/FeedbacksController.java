@@ -5,6 +5,7 @@ import com.Flone.Flone.core.utilities.Results.DataResult;
 import com.Flone.Flone.core.utilities.Results.Result;
 import com.Flone.Flone.entities.concretes.Feedback;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,23 +20,23 @@ public class FeedbacksController {
         this.feedbackService=feedbackService;
     }
     @PostMapping("/add")
-    public Result add(Feedback feedback){
-        return this.feedbackService.add(feedback);
+    public ResponseEntity<?> add(Feedback feedback){
+        return ResponseEntity.ok(this.feedbackService.add(feedback));
     }
     @DeleteMapping("/delete")
-    public Result delete(Feedback feedback){
-     return    this.feedbackService.delete(feedback);
+    public ResponseEntity<?> delete(Feedback feedback){
+     return ResponseEntity.ok(   this.feedbackService.delete(feedback));
     }
     @GetMapping("/getall")
-    public DataResult<List<Feedback>> getAll(){
-        return this.feedbackService.getAll();
+    public ResponseEntity<?> getAll(){
+        return ResponseEntity.ok(this.feedbackService.getAll());
     }
     @GetMapping("/getbyid/{id}")
-    public DataResult<Feedback> findById(@PathVariable int id){
-        return this.feedbackService.findById(id);
+    public ResponseEntity<?> findById(@PathVariable int id){
+        return ResponseEntity.ok(this.feedbackService.findById(id));
     }
     @PatchMapping("/update")
-    public  Result update(Feedback feedback){
-        return this.feedbackService.update(feedback);
+    public  ResponseEntity<?> update(Feedback feedback){
+        return ResponseEntity.ok(this.feedbackService.update(feedback));
     }
 }
