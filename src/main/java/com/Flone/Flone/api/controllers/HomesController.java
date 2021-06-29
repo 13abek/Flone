@@ -4,6 +4,7 @@ import com.Flone.Flone.business.abstracts.HomeService;
 import com.Flone.Flone.core.utilities.Results.DataResult;
 import com.Flone.Flone.core.utilities.Results.Result;
 import com.Flone.Flone.entities.concretes.Home;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,12 +20,12 @@ public class HomesController {
         this.homeService=homeService;
     }
     @PostMapping("/add")
-    public Result add(Home home){
-        return this.homeService.add(home);
+    public ResponseEntity<?> add(Home home){
+        return ResponseEntity.ok(this.homeService.add(home));
     }
 
     @GetMapping("/getAll")
-    public DataResult<List<Home>> getAll(){
-     return    this.homeService.getAll();
+    public ResponseEntity<?> getAll(){
+     return ResponseEntity.ok(this.homeService.getAll());
     }
 }

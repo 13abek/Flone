@@ -6,6 +6,7 @@ import com.Flone.Flone.core.utilities.Results.DataResult;
 import com.Flone.Flone.core.utilities.Results.Result;
 import com.Flone.Flone.entities.concretes.Home;
 import com.Flone.Flone.entities.concretes.HomeSlider;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,20 +19,20 @@ public class HomeSlidersController {
     }
 
     @PostMapping("/home/{id}/add")
-    public Result add(@RequestParam("file") MultipartFile file, HomeSlider homeSlider, @PathVariable int id){
-      return  this.homeSliderService.add(file,homeSlider,id);
+    public ResponseEntity<?> add(@RequestParam("file") MultipartFile file, HomeSlider homeSlider, @PathVariable int id){
+      return ResponseEntity.ok(this.homeSliderService.add(file,homeSlider,id));
     }
     @PostMapping("/home/{id}/addDb")
-    public Result addDb(@RequestParam("file") MultipartFile file,@PathVariable int id){
-        return this.homeSliderService.addDb(file,id);
+    public ResponseEntity<?> addDb(@RequestParam("file") MultipartFile file,@PathVariable int id){
+        return ResponseEntity.ok(this.homeSliderService.addDb(file,id));
     }
     @PostMapping("/delete")
-    public Result delete(HomeSlider homeSlider){
-        return this.homeSliderService.delete(homeSlider);
+    public ResponseEntity<?> delete(HomeSlider homeSlider){
+        return ResponseEntity.ok(this.homeSliderService.delete(homeSlider));
     }
 
     @GetMapping("/findById/{id}")
-    public DataResult<HomeSlider> findById(@PathVariable int id){
-      return   this.homeSliderService.findById(id);
+    public ResponseEntity<?> findById(@PathVariable int id){
+      return ResponseEntity.ok(this.homeSliderService.findById(id));
     }
 }
