@@ -6,6 +6,7 @@ import com.Flone.Flone.core.utilities.Results.Result;
 import com.Flone.Flone.core.utilities.Results.SuccessDataResult;
 import com.Flone.Flone.entities.concretes.ProductColor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,23 +26,23 @@ public class ProductColorsController {
     }
 
     @PostMapping ("/add")
-    public Result add(ProductColor productColor){
-        return this.productColorService.add(productColor);
+    public ResponseEntity<?> add(ProductColor productColor){
+        return ResponseEntity.ok(this.productColorService.add(productColor));
     }
     @GetMapping("/getAll")
-    public DataResult<List<ProductColor>> getAll(){
-        return this.productColorService.getAll();
+    public ResponseEntity<?> getAll(){
+        return ResponseEntity.ok(this.productColorService.getAll());
     }
     @GetMapping("/getByColorName")
-    public DataResult<ProductColor> findByColorName(String name){
-        return (this.productColorService.findByName(name));
+    public ResponseEntity<?> findByColorName(String name){
+        return ResponseEntity.ok(this.productColorService.findByName(name));
     }
     @PostMapping("delete")
-    public Result delete(ProductColor productColor){
-        return  this.productColorService.delete(productColor);
+    public ResponseEntity<?> delete(ProductColor productColor){
+        return  ResponseEntity.ok(this.productColorService.delete(productColor));
     }
     @PostMapping("update")
-    public Result update(ProductColor productColor){
-        return  this.productColorService.update(productColor);
+    public ResponseEntity<?> update(ProductColor productColor){
+        return ResponseEntity.ok( this.productColorService.update(productColor));
     }
 }
