@@ -5,6 +5,7 @@ import com.Flone.Flone.core.utilities.Results.DataResult;
 import com.Flone.Flone.core.utilities.Results.Result;
 import com.Flone.Flone.entities.concretes.Category;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,28 +22,29 @@ public class CategoriesController {
     }
 
     @GetMapping("/getall")
-    public DataResult<List<Category>> getAll(){
-        return this.categoryService.getAll();
+    public ResponseEntity<?> getAll(){
+        return ResponseEntity.ok(this.categoryService.getAll());
     }
 
     @GetMapping("/getByCategoryName")
-    public DataResult<Category> getByCategoryName(@RequestParam String name){
+    public ResponseEntity<?> getByCategoryName(@RequestParam String name){
 
-        return this.categoryService.findByName(name);
+        return  ResponseEntity.ok(this.categoryService.findByName(name));
+
     }
 
     @PostMapping("/add")
-    public Result add(Category category){
-      return   this.categoryService.add(category);
+    public ResponseEntity<?> add(Category category){
+      return  ResponseEntity.ok(this.categoryService.add(category));
     }
 
     @PostMapping("/delete")
-    public Result delete(Category category){
-        return this.categoryService.delete(category);
+    public ResponseEntity<?> delete(Category category){
+        return ResponseEntity.ok(this.categoryService.delete(category));
     }
     @PostMapping("/update")
-    public Result update(Category category){
-       return this.categoryService.update(category);
+    public ResponseEntity<?> update(Category category){
+       return ResponseEntity.ok(this.categoryService.update(category));
 
     }
 }
