@@ -4,6 +4,7 @@ import com.Flone.Flone.business.abstracts.ContactService;
 import com.Flone.Flone.core.utilities.Results.*;
 import com.Flone.Flone.entities.concretes.Contact;
 import org.springframework.boot.autoconfigure.freemarker.FreeMarkerTemplateAvailabilityProvider;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,25 +18,25 @@ public class ContactsController {
     }
 
     @GetMapping("/getall")
-    public DataResult<List<Contact>> getAll(){
-        return this.contactService.getAll();
+    public ResponseEntity<?> getAll(){
+        return ResponseEntity.ok(this.contactService.getAll());
     }
 
     @GetMapping("/getbyid/{id}")
-    public DataResult<Contact> getById(@PathVariable int id){
-      return   this.contactService.findById(id);
+    public ResponseEntity<?> getById(@PathVariable int id){
+      return ResponseEntity.ok(this.contactService.findById(id));
     }
     @PostMapping("/add")
-    public Result add(Contact contact){
-        return this.contactService.add(contact);
+    public ResponseEntity<?> add(Contact contact){
+        return ResponseEntity.ok(this.contactService.add(contact));
     }
     @DeleteMapping("/delete")
-    public Result delete(Contact contact){
-        return this.contactService.delete(contact);
+    public ResponseEntity<?> delete(Contact contact){
+        return ResponseEntity.ok(this.contactService.delete(contact));
     }
     @PatchMapping("/update")
-    public Result update(Contact contact){
-        return  this.contactService.update(contact);
+    public ResponseEntity<?> update(Contact contact){
+        return ResponseEntity.ok(this.contactService.update(contact));
     }
 
 
