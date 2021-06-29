@@ -8,6 +8,10 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
+@Entity
+@Table(name = "base_customer")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn
 @MappedSuperclass
 public class Customer {
     @Id
@@ -41,6 +45,7 @@ public class Customer {
     @NotNull
     @NotBlank
     private String postcodeZip;
+
 
     public Customer(){
 

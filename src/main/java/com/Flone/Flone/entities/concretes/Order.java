@@ -1,5 +1,7 @@
 package com.Flone.Flone.entities.concretes;
 
+import com.Flone.Flone.entities.abstracts.Customer;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -25,30 +27,26 @@ public class Order {
     @NotBlank
     @Column(name = "price")
     private double price;
-    @ManyToOne()
-    @JoinColumn(name = "individualCustomer_id")
-    private IndividualCustomer individualCustomer;
+
+  //  @ManyToOne
+    // @JoinColumn(name = "customerId")
+  //  private Customer customer;
 
 
-
-    @ManyToOne()
-    @JoinColumn(name = "corporateCustomer_id")
-    private CorporateCustomer corporateCustomer ;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
+
     public Order(){
 
     }
 
-    public Order(int id, Date date, int amount, double price, IndividualCustomer individualCustomer, CorporateCustomer corporateCustomer, Product product) {
+    public Order(int id, Date date, int amount, double price) {
         this.id = id;
         this.date = date;
         this.amount = amount;
         this.price = price;
-        this.individualCustomer = individualCustomer;
-        this.corporateCustomer = corporateCustomer;
         this.product = product;
     }
 
@@ -82,14 +80,5 @@ public class Order {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-    public void addIndividualCustomer(IndividualCustomer customer){
-        this.individualCustomer=customer;
-    }
-    public void addCorporateCustomer(CorporateCustomer customer){
-        this.corporateCustomer=customer;
-    }
-    public void addProduct(Product product){
-        this.product=product;
     }
 }
