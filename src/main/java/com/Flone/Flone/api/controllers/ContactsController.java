@@ -17,11 +17,11 @@ public class ContactsController {
         this.contactService=contactService;
     }
 
+
     @GetMapping("/getall")
     public ResponseEntity<?> getAll(){
         return ResponseEntity.ok(this.contactService.getAll());
     }
-
     @GetMapping("/getbyid/{id}")
     public ResponseEntity<?> getById(@PathVariable int id){
       return ResponseEntity.ok(this.contactService.findById(id));

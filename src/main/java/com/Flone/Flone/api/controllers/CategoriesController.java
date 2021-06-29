@@ -30,9 +30,7 @@ public class CategoriesController {
     public ResponseEntity<?> getByCategoryName(@RequestParam String name){
 
         return  ResponseEntity.ok(this.categoryService.findByName(name));
-
     }
-
     @PostMapping("/add")
     public ResponseEntity<?> add(Category category){
       return  ResponseEntity.ok(this.categoryService.add(category));
