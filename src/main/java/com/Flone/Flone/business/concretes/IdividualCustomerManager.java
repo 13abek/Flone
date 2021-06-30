@@ -42,6 +42,10 @@ public class IdividualCustomerManager implements IndividualCustomerService {
         if (!this.emailValidationService.validate(customer.getEmail())){
             return new ErrorResult("Invalid email,Please try again !");
         }
+      Customer customerEmail=  this.customerDao.findByEmail(customer.getEmail());
+        if (customerEmail!=null){
+            return new ErrorResult("email exists");
+        }
         this.customerDao.save(customer);
         return new SuccessResult("Customer add");
     }
