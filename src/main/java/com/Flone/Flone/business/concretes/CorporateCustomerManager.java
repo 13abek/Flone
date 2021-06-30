@@ -4,7 +4,9 @@ import com.Flone.Flone.business.abstracts.CorporateCustomerService;
 import com.Flone.Flone.core.utilities.Results.*;
 import com.Flone.Flone.core.utilities.emailValidation.EmailValidationService;
 import com.Flone.Flone.dataAccess.abstracts.CorporateCustomerDao;
+import com.Flone.Flone.entities.abstracts.Customer;
 import com.Flone.Flone.entities.concretes.CorporateCustomer;
+import org.hibernate.usertype.CompositeUserType;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,6 +39,10 @@ public class CorporateCustomerManager implements CorporateCustomerService {
         if (!this.emailValidationService.validate(customer.getEmail())){
             return new ErrorResult("Invalid email,please try again !");
         }
+        Customer checkEmail=this.customerDao.findByEmail(customer.getEmail());
+        if (checkEmail!=null){
+            return new ErrorResult("email exists");
+        }
         this.customerDao.save(customer);
         return new SuccessResult("Corporate Customer added");
     }
@@ -61,6 +67,6 @@ public class CorporateCustomerManager implements CorporateCustomerService {
 
        this.customerDao.save(updateToCustomer);
 
-        return new SuccessResult("Corporate Customer update successfuly");
+        return new SuccessResult("Corporate Customer update has been successfully");
     }
 }
